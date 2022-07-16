@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blood_bank_app/home/about_us.dart';
+import 'package:flutter_blood_bank_app/home/chat_tab/chat_tab.dart';
 import 'package:flutter_blood_bank_app/home/diabetic_predection.dart';
 import 'package:flutter_blood_bank_app/home/diet.dart';
 import 'package:flutter_blood_bank_app/home/doctor_tab.dart';
@@ -46,6 +47,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     icon: Icon(Icons.accessible_outlined), label: 'Diet'),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.rate_review_outlined), label: 'About Us'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.chat), label: 'Community')
               ],
             ),
           ),
@@ -54,5 +57,5 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-  List<Widget> tabs = [DiabeticPredection(),DoctorTab(),Exercises(), Diet(),AboutUs()];
+  List<Widget> tabs = [DiabeticPredection(),DoctorTab(),Exercises(), Diet(),AboutUs(),ChatScreen()];
 }

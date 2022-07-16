@@ -245,7 +245,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       hideLoading(context);
       if (result.user != null) {
         showMessage('User Registered Successfully', context);
-        var myUser = AppUser.User(
+        var myUser = AppUser.MyUser(
             id: result.user!.uid,
             age: age,
             userName: userName,

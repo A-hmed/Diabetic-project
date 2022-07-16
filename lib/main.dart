@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.ROUTE_NAME : (context)=> HomeScreen(),
         DoctorDetailsScreen.ROUTE_NAEM : (context)=> DoctorDetailsScreen(),
       },
-        initialRoute: HomeScreen.ROUTE_NAME,
+        initialRoute: LoginScreen.ROUTE_NAME,
     );
   }
 }
