@@ -159,7 +159,6 @@ class _LoginScreenState extends State<LoginScreen> {
           .signInWithEmailAndPassword(email: email, password: password);
       hideLoading(context);
       if (result.user != null) {
-        showMessage('user Logged in successfully', context);
         // retrieve user from DB
         var firestoreUser = await getUserById(result.user!.uid);
         if (firestoreUser != null) {

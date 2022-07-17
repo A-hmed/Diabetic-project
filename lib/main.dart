@@ -7,6 +7,11 @@ import 'package:flutter_blood_bank_app/home/home_screen.dart';
 import 'package:flutter_blood_bank_app/provider/auth_provider.dart';
 import 'package:provider/provider.dart';
 
+import 'home/exercises/exercise_type1/exercise_type1.dart';
+import 'home/exercises/exercise_type1/exerciset_type1_details.dart';
+import 'home/exercises/exercise_type2/exercise_type2.dart';
+import 'home/exercises/exercise_type3/exercise_type3.dart';
+
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -39,6 +44,10 @@ class MyApp extends StatelessWidget {
         LoginScreen.ROUTE_NAME : (context) => LoginScreen(),
         HomeScreen.ROUTE_NAME : (context)=> HomeScreen(),
         DoctorDetailsScreen.ROUTE_NAEM : (context)=> DoctorDetailsScreen(),
+        ExerciseType1Screen.ROUTE_NAME : (context) => ExerciseType1Screen(),
+        ExersiseType1Details.ROUTE_NAME : (context) => ExersiseType1Details(),
+        ExerciseType2Screen.ROUTE_NAME : (context) => ExerciseType2Screen(),
+        ExerciseType3Screen.ROUTE_NAME : (context) => ExerciseType3Screen(),
       },
         initialRoute: LoginScreen.ROUTE_NAME,
     );

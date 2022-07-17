@@ -3,8 +3,10 @@ import 'package:flutter_blood_bank_app/home/about_us.dart';
 import 'package:flutter_blood_bank_app/home/chat_tab/chat_tab.dart';
 import 'package:flutter_blood_bank_app/home/diabetic_predection.dart';
 import 'package:flutter_blood_bank_app/home/diet.dart';
-import 'package:flutter_blood_bank_app/home/doctor_tab.dart';
-import 'package:flutter_blood_bank_app/home/exercises.dart';
+import 'package:flutter_blood_bank_app/home/doctor_tab/doctor_tab.dart';
+import 'package:flutter_blood_bank_app/home/tips_and_advises_tab/tips_and_advises_tab.dart';
+
+import 'exercises/exercises.dart';
 
 class HomeScreen extends StatefulWidget {
   static String ROUTE_NAME = 'home';
@@ -46,9 +48,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 BottomNavigationBarItem(
                     icon: Icon(Icons.accessible_outlined), label: 'Diet'),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.rate_review_outlined), label: 'About Us'),
+                    icon: Icon(Icons.tips_and_updates), label: 'Tips'),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.chat), label: 'Community')
+                    icon: Icon(Icons.chat), label: 'Community'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.rate_review_outlined), label: 'About Us'),
               ],
             ),
           ),
@@ -57,5 +61,5 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-  List<Widget> tabs = [DiabeticPredection(),DoctorTab(),Exercises(), Diet(),AboutUs(),ChatScreen()];
+  List<Widget> tabs = [DiabeticPredection(),DoctorTab(),Exercises(), Diet(),TipsAndAdvisesTab(),ChatScreen(),AboutUs()];
 }

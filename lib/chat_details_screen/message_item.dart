@@ -39,7 +39,7 @@ class MessageItem extends StatelessWidget {
                 child: Text(
                   message.content,
                   style: const TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: 15,
                       fontWeight: FontWeight.w400),
                 ),

@@ -25,7 +25,11 @@ class ChatItem extends StatelessWidget {
             const SizedBox(
               width: 12,
             ),
-            Text("${receiver.userName}")
+            Text("${receiver.userName}",
+              style: TextStyle(
+                fontSize: 18,
+              ),
+            )
           ],
         ),
       ),

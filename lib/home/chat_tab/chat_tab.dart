@@ -31,12 +31,20 @@ class _ChatScreenState extends State<ChatScreen> {
             }
             return SafeArea(
               child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: Colors.black,width: 2),
+                  color: Colors.white
+                ),
+                padding: EdgeInsets.all(20),
                 margin: EdgeInsets.symmetric(
                   horizontal: MediaQuery.of(context).size.height * 0.03,
+                  vertical: 15
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
+                    SizedBox(height: 20,),
                     const Text(
                       'Community',
                       style: TextStyle(
@@ -54,8 +62,8 @@ class _ChatScreenState extends State<ChatScreen> {
                           },
                           separatorBuilder: (context, index) {
                             return const Divider(
-                              color: Colors.grey,
-                              thickness: 1,
+                              color: Colors.black,
+                              thickness: 2,
                             );
                           },
                           itemCount: users.length),

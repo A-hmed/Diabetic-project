@@ -13,7 +13,7 @@ class LocationBottomSheet extends StatefulWidget {
 
 class _LocationBottomSheetState extends State<LocationBottomSheet> {
   List<String> provinces = [
-    'محافظة القاهرة',
+    'القاهرة',
     'الجيزة',
     'الأسكندرية'
         'الدقهلية',

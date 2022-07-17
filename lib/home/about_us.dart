@@ -20,7 +20,7 @@ class _AboutUsState extends State<AboutUs> {
         padding: EdgeInsets.all(24),
         child: Column(
           children: [
-            SizedBox(height: MediaQuery.of(context).size.height * 0.09,),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.07,),
             Expanded(
               child: ListView.builder(
                 itemBuilder: (BuildContext context, int index) => Container(
@@ -28,7 +28,7 @@ class _AboutUsState extends State<AboutUs> {
                     margin: EdgeInsets.only(bottom: 12),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      color: Colors.grey[50],
+                      color: Colors.grey[300],
                     ),
                     child: Theme(
                       data: Theme.of(context)
@@ -83,9 +83,25 @@ class _AboutUsState extends State<AboutUs> {
         ),
     );
   }
+  String answer1=
+      "This application should cover patient with diabetic daises"
+      "\nAnd result for that the patient have a normal life with the daises"
+      "\nBy control the sugar measurement in the blood  with recommendation activity with patient like (food/ exercise/ and advice)"
+      "\nAnd make connection with doctor more easier to take appointment"
+      "\nOr take advice from another patient by chatting to make a communication"
+  ;
+  String answer2=
+      "\nSara Ebrahim Mohamed"
+      "\nMohamed Hussein Mohamed"
+      "\nSara Abdel Nasar Ali"
+      "\nSamar Mahmoud taha";
+  String answer3=
+      "Its assemble to future of health care prediction with some hardware"
+      "\nAnd high sensors the patient will have a normal live without any risk … by analysis his blood with connection alarm for any dangerous prediction ";
 
   void fetchFaqs() {
-    faqList = ['About SMDS', 'TEAM', 'Question3'];
-    faqContent = ['Answer 1', 'Answer 2', 'Answer 3'];
+    faqList = ['About SMDS', 'TEAM', 'Our  app future'];
+    faqContent = [answer1, answer2, answer3];
+
   }
 }

@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blood_bank_app/bottom_sheet/diabetic_type_bottom_sheet.dart';
 import 'package:flutter_blood_bank_app/bottom_sheet/location_bottom_sheet.dart';
 import 'package:flutter_blood_bank_app/data/firestore_utils.dart';
+import 'package:flutter_blood_bank_app/data/user.dart' as AppUser;
 import 'package:flutter_blood_bank_app/home/home_screen.dart';
 import 'package:flutter_blood_bank_app/provider/auth_provider.dart';
 import 'package:flutter_blood_bank_app/utils.dart';
-import 'package:flutter_blood_bank_app/data/user.dart' as AppUser;
 import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -20,19 +20,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
   late String age = '';
   String userName = '',
       email = '',
-  insulinLevel = '',
+      insulinLevel = '',
       sex = '',
       password = '',
       location = '',
       diabeticType = '';
 
-  late AuthProvider provider ;
+  late AuthProvider provider;
 
   var formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-     provider = Provider.of<AuthProvider>(context);
+    provider = Provider.of<AuthProvider>(context);
 
     return Container(
       color: Colors.white,
@@ -144,7 +144,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       },
                     ),
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         showLocationBottomSheet();
                       },
                       child: Container(
@@ -154,19 +154,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(location.isEmpty? 'Location' : location,
+                            Text(
+                              location.isEmpty ? 'Location' : location,
                               style: TextStyle(
                                 fontSize: 20,
                                 color: Colors.black,
                               ),
                             ),
-                            Icon(Icons.arrow_drop_down , size: 30, color: Colors.black,)
+                            Icon(
+                              Icons.arrow_drop_down,
+                              size: 30,
+                              color: Colors.black,
+                            )
                           ],
                         ),
                       ),
                     ),
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         showDiabeticTypeBottomSheet();
                       },
                       child: Container(
@@ -176,18 +181,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(diabeticType.isEmpty ?'Diabetic Type':diabeticType,
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.black
-                              ),
+                            Text(
+                              diabeticType.isEmpty
+                                  ? 'Diabetic Type'
+                                  : diabeticType,
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.black),
                             ),
-                            Icon(Icons.arrow_drop_down , size: 30, color: Colors.black,)
+                            Icon(
+                              Icons.arrow_drop_down,
+                              size: 30,
+                              color: Colors.black,
+                            )
                           ],
                         ),
                       ),
                     ),
-
                     SizedBox(
                       height: MediaQuery.of(context).size.height * .05,
                     ),
@@ -226,16 +235,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ),
     );
   }
-  onLocationChanged(String newLocation){
+
+  onLocationChanged(String newLocation) {
     location = newLocation;
     setState(() {});
   }
-  onDiabeticTypeChanged(String newDiabeticType){
-    diabeticType = newDiabeticType ;
-    setState(() {
 
-    });
+  onDiabeticTypeChanged(String newDiabeticType) {
+    diabeticType = newDiabeticType;
+    setState(() {});
   }
+
   void createAccountWithFirebaseAuth() async {
     try {
       showLoading(context);
@@ -244,17 +254,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
       // to register user in our database
       hideLoading(context);
       if (result.user != null) {
-        showMessage('User Registered Successfully', context);
         var myUser = AppUser.MyUser(
             id: result.user!.uid,
             age: age,
             userName: userName,
             email: email,
-          sex: sex,
-          location: location,
-          diabeticType: diabeticType,
-            insulinLevel: insulinLevel
-        );
+            sex: sex,
+            location: location,
+            diabeticType: diabeticType,
+            insulinLevel: insulinLevel);
         addUserToFireStore(myUser).then((value) {
           provider.updateUser(myUser);
           Navigator.pushReplacementNamed(context, HomeScreen.ROUTE_NAME);
@@ -267,20 +275,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
       showMessage(error.toString(), context);
     }
   }
+
   void showLocationBottomSheet() {
     showModalBottomSheet(
         context: context,
         builder: (buildContext) {
-          return LocationBottomSheet(location: location, onLocationChanged: onLocationChanged);
+          return LocationBottomSheet(
+              location: location, onLocationChanged: onLocationChanged);
         });
   }
+
   void showDiabeticTypeBottomSheet() {
     showModalBottomSheet(
         context: context,
         builder: (buildContext) {
-          return DiabeticTypeBottomSheet(diabeticType: diabeticType , onDiabeticTypeChanged: onDiabeticTypeChanged);
+          return DiabeticTypeBottomSheet(
+              diabeticType: diabeticType,
+              onDiabeticTypeChanged: onDiabeticTypeChanged);
         });
   }
 }
-
-

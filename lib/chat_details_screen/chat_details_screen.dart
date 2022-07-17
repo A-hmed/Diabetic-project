@@ -31,16 +31,16 @@ class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
         leading: IconButton(
           splashRadius: 25,
           padding: EdgeInsets.zero,
-          icon: const Icon(Icons.arrow_back, color: Colors.green),
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.blue,
         title: Row(
           children: [
             const CircleAvatar(
                 radius: 20,
-                backgroundColor: Colors.blue,
-                child: Icon(Icons.person)),
+                backgroundColor: Colors.white,
+                child: Icon(Icons.person,size: 25,)),
             const SizedBox(
               width: 20,
             ),
@@ -48,8 +48,8 @@ class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
               widget.receiver.userName,
               textAlign: TextAlign.start,
               style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
+                  color: Colors.white,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold),
             ),
           ],

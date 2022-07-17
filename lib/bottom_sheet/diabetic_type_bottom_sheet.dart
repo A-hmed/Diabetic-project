@@ -14,13 +14,6 @@ class _DiabeticTypeBottomSheetState extends State<DiabeticTypeBottomSheet> {
     'diabetic1',
     'diabetic2',
     'diabetic3',
-    'diabetic4',
-    'diabetic5',
-    'diabetic6',
-    'diabetic7',
-    'diabetic8',
-    'diabetic9',
-    'diabetic10',
   ];
 
   @override
